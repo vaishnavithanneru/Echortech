@@ -99,6 +99,29 @@ Unique Words:
 
 Reversed Sentence: The word array is reversed and then joined back into a string with spaces.
 
+Commands Used : 
+
+The commands you used show the standard steps for initializing a TypeScript and Express project:
+
+Dependency Installation: You installed the necessary packages for development and production.
+
+npm install --save-dev typescript @types/node: Installs TypeScript and its type definitions for Node.js.
+
+npm install express: Installs the Express framework.
+
+npm install --save-dev @types/express: Installs the TypeScript type definitions for Express.
+
+TypeScript Initialization:
+
+npx tsc --init: Tried to create a tsconfig.json, but received an error because the file already existed (this is fine).
+
+Compilation:
+
+npx tsc: Successfully compiled your TypeScript files (src/*.ts) into JavaScript files in the dist/ directory.
+
+Execution:
+
+npm start: Executed the startup script defined in your package.json (likely node dist/server.js), which started the server.
 
 
 
