@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Echor Tech - Sentence Transformer</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; background: #f8f9fa; color: #333; }
+    h1 { color: #2c3e50; text-align: center; }
+    textarea { width: 100%; height: 120px; padding: 15px; font-size: 16px; border: 2px solid #ddd; border-radius: 10px; margin: 15px 0; }
+    button { padding: 12px 30px; font-size: 18px; background: #3498db; color: white; border: none; border-radius: 10px; cursor: pointer; }
+    button:hover { background: #2980b9; }
+    pre { background: #2c3e50; color: #1abc9c; padding: 20px; border-radius: 10px; font-size: 16px; margin-top: 20px; overflow-x: auto; }
+    .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Echor Tech - Sentence Transformer</h1>
+    <p>Enter any sentence and see the transformation instantly!</p>
+
+    <textarea id="sentence" placeholder="Please Enter the Sentence...."></textarea><br/>
+    <button onclick="transform()">Transform Now</button>
+
+    <h2>Result:</h2>
+    <pre id="output">Click the button above to see the result...</pre>
+  </div>
+
+ <script>
+async function transform() {
+  const input = document.getElementById('sentence');
+  const output = document.getElementById('output');
+  const sentence = input.value.trim();
+
+  if (!sentence) {
+    output.textContent = 'Please type something!';
+    return;
+  }
+
+  // THIS IS YOUR DREAM COME TRUE:
+  const newUrl = `/api/transform/${encodeURIComponent(sentence)}`;
+  history.pushState({}, '', newUrl);  // ← URL changes instantly!
+
+  try {
+    const res = await fetch(newUrl);
+    const data = await res.json();
+    output.textContent = JSON.stringify(data, null, 2);
+  } catch (err) {
+    output.textContent = 'Error';
+  }
+}
+
+// If someone opens the link directly → auto-fill and show result
+if (location.pathname.startsWith('/api/transform/')) {
+  const sentence = decodeURIComponent(location.pathname.slice(14));
+  document.getElementById('sentence').value = sentence;
+  transform();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "echor-tech-task",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "dev": "ts-node-dev src/server.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.25",
+    "@types/node": "^20.19.25",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
