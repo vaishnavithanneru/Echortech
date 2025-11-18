@@ -66,16 +66,15 @@ The UI calls the internal API and uses the HTML5 History API (history.pushState)
 
 🛠️ Project Structure
 .
+
 ├── dist/                 # Compiled JavaScript output
 
 ├── node_modules/         # Dependencies
 
 ├── public/
-
 │   └── index.html        # Simple UI for demonstration
 
 ├── src/
-
 │   └── server.ts         # Main Express application (TypeScript)
 
 ├── package.json
@@ -99,6 +98,7 @@ Unique Words:
 ⦁	A Set is used to automatically filter out duplicate words.
 
 Reversed Sentence: The word array is reversed and then joined back into a string with spaces.
+
 
 
 
