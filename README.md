@@ -32,7 +32,8 @@ JSON
 }
 
 2. GET /api/transform/:sentence (Bonus URL-Based Endpoint)
- This endpoint allows transforming a sentence directly via the URL path, which is used by the integrated front-end.
+
+This endpoint allows transforming a sentence directly via the URL path, which is used by the integrated front-end.
 
 Method: GET
 
@@ -76,6 +77,7 @@ The UI calls the internal API and uses the HTML5 History API (history.pushState)
 └── tsconfig.json         # TypeScript compiler configuration
 
 📝 Core Logic
+
 The transformation logic handles the following:
 
 Splitting: The sentence is split by one or more whitespace characters (/\s+/) to get the words.
@@ -84,9 +86,9 @@ Word Count: The length of the resulting word array.
 
 Unique Words:
 
-Words are converted to lowercase to ensure case-insensitivity.
-
-A Set is used to automatically filter out duplicate words.
+⦁	Words are converted to lowercase to ensure case-insensitivity.
+⦁	A Set is used to automatically filter out duplicate words.
 
 Reversed Sentence: The word array is reversed and then joined back into a string with spaces.
+
 
